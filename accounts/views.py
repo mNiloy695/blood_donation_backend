@@ -67,9 +67,9 @@ def activate(request,uid64,token):
     if user is not None and default_token_generator.check_token(user,token):
             user.is_active=True
             user.save()
-            return redirect('http://localhost:5173/login')
+            return redirect('https://blood-donation-frontend-chi.vercel.app/login')
         
-    return redirect('http://localhost:5173/register')
+    return redirect('https://blood-donation-frontend-chi.vercel.app/register')
 
 
 # login serializer 
@@ -87,8 +87,8 @@ class UserLoginViewSet(APIView):
                 token,_=Token.objects.get_or_create(user=user)
                 login(request,user)
                 if user.is_staff:
-                     redirect('http://localhost:5173/dashboard')
-                redirect('http://localhost:5173/')
+                     redirect('https://blood-donation-frontend-chi.vercel.app/dashboard')
+                redirect('https://blood-donation-frontend-chi.vercel.app/')
                 
                 return Response({'token':token.key,'user_id':user.id,"is_staff":user.is_staff,"blood_group":user.blood_group})
             else:
@@ -99,5 +99,5 @@ class UserLogoutViewSet(APIView):
     permission_classes = [permissions.IsAuthenticated]
     def post(self,request):
         logout(request)
-        redirect('http://localhost:5173/login')
+        redirect('https://blood-donation-frontend-chi.vercel.app/login')
         return Response({'detail':"Successfully logout"})
