@@ -32,9 +32,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',  # Allow frontend running on port 5173
     'https://blood-donation-frontend-chi.vercel.app',
-    'https://*',
-    'http://127.0.0.1:8000',
-  
+    
 ]
 
 AUTH_USER_MODEL='accounts.CustomUserModel'
