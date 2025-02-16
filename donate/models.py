@@ -35,3 +35,8 @@ class DonationRequestModel(models.Model):
     class Meta:
         ordering=['last_donate']
     
+    def save(self, *args, **kwargs):
+      if not self.email:
+        self.email = self.user.email
+      super().save(*args, **kwargs)
+
