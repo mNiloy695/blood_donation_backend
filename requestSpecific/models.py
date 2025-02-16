@@ -18,7 +18,7 @@ class ApplyBloodModelForSpecificUser(models.Model):
     status=models.CharField(choices=STATUS_TYPE,default='Pending',max_length=10)
     blood_group=models.CharField(null=True,blank=True,max_length=5)
     phone=models.CharField(null=True,blank=True,max_length=12)
-
+    requestmodel=models.ForeignKey(RequestForBloodModel,null=True,blank=True,on_delete=models.CASCADE)
     """
     first i need to create a  request object then i pass it apply model from frontend
     """
@@ -27,6 +27,15 @@ class ApplyBloodModelForSpecificUser(models.Model):
     def save(self,*args, **kwargs):
         self.blood_group=self.blood_request.blood
         self.phone=self.requester.phone
+        requestForBlood=RequestForBloodModel.objects.create(
+            user=self.requester,
+            phone=self.phone,
+            unit=self.blood_request.unit,
+            blood=self.blood_group,
+            address=self.blood_request.address
+
+        )
+        self.requestmodel=requestForBlood
         if self.status=='Accepted':
             print("Yesss")
             

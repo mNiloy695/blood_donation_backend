@@ -34,9 +34,12 @@ CORS_ALLOWED_ORIGINS = [
     'https://blood-donation-frontend-chi.vercel.app',
     
 ]
+CORS_ALLOW_ALL_ORIGINS=True
+CSRF_TRUSTED_ORIGINS = ['https://blood-donation-frontend-chi.vercel.app']
 
 AUTH_USER_MODEL='accounts.CustomUserModel'
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -53,11 +56,13 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework.authtoken',
     'corsheaders',
+     "whitenoise.runserver_nostatic",
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -65,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'Blood_Donation_Backend.urls'
@@ -85,7 +91,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Blood_Donation_Backend.wsgi.application'
+WSGI_APPLICATION = 'Blood_Donation_Backend.wsgi.app'
 
 
 # Database
@@ -149,7 +155,7 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+STATIC_ROOT=BASE_DIR/ 'staticfiles'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

@@ -5,5 +5,10 @@ django-environ
 django-filter
 djangorestframework
 Markdown
+psycopg2
+python-dotenv
 sqlparse
 tzdata
+whitenoise
+
+# pip freeze --local | sed 's/==.*//g' > requirements.txt

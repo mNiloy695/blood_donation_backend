@@ -1,6 +1,7 @@
 from django.db import models
 from  django.contrib.auth.models import User
 from django.contrib.auth  import get_user_model
+from  requestForBlood.models import RequestForBloodModel
 User=get_user_model()
 # Create your models here.
 
@@ -30,6 +31,7 @@ class DonationRequestModel(models.Model):
     unit=models.IntegerField(default=1,blank=True,null=True)
     last_donate=models.DateField(blank=True,null=True)
     email=models.EmailField(blank=True,null=True)
+    
     def __str__(self):
        return f"{self.status} {self.blood}"
     class Meta:
