@@ -5,7 +5,7 @@ django-environ
 django-filter
 djangorestframework
 Markdown
-psycopg2
+psycopg2-binary
 python-dotenv
 sqlparse
 tzdata
