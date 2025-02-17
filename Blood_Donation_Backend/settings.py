@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.vercel.app']
 
 CORS_ORIGIN_ALLOW_ALL = True
-
+# d:\Blood_Donation\Blood_Donation_Backend
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',  # Allow frontend running on port 5173
     'https://blood-donation-frontend-chi.vercel.app',
@@ -42,6 +42,7 @@ AUTH_USER_MODEL='accounts.CustomUserModel'
 
 
 INSTALLED_APPS = [
+    "whitenoise.runserver_nostatic",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,7 +57,7 @@ INSTALLED_APPS = [
     'accounts',
     'rest_framework.authtoken',
     'corsheaders',
-     "whitenoise.runserver_nostatic",
+     
     
 ]
 
