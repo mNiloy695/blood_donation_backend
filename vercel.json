@@ -2,14 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "blood_Donation_Backend/wsgi.py",
+      "src": "Blood_Donation_Backend/wsgi.py",
       "use": "@vercel/python"
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "blood_Donation_Backend/wsgi.py"
+      "dest": "Blood_Donation_Backend/wsgi.py"
     }
   ]
 }
