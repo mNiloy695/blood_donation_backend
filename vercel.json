@@ -4,7 +4,7 @@
     {
       "src": "blood_Donation_Backend/wsgi.py",
       "use": "@vercel/python",
-      "timeout": 60
+      "timeout": 600
     }
   ],
   "routes": [

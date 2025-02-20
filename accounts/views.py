@@ -47,7 +47,7 @@ class RegistrationView(viewsets.ModelViewSet):
         user = serializer.save() # Save the user first # Generate token and send confirmation email 
         token = default_token_generator.make_token(user) 
         uid = urlsafe_base64_encode(force_bytes(user.pk)) 
-        confirmation_link = f'http://127.0.0.1:8000/account/activate/{uid}/{token}/' 
+        confirmation_link = f'https://blood-donation-backend-v3bp.vercel.app/account/activate/{uid}/{token}/' 
         subject = "Confirmation Mail" 
         body = render_to_string('confirmation_mail.html', {'confirmation_link': confirmation_link})
         email = EmailMultiAlternatives(subject, '', to=[user.email])
